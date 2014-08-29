@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="width=device-height, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+<meta content="iPad Fingerpaint demonstration using html5 canvas and css3" name="description">
+<meta content="finger paint, ipad, html5 canvas, css3, webkit, tounch events" name="keywords">
+<title>iPad Fingerpaint by Simon J. Hogan</title>
+<script src="fingerpaint.js" type="text/javascript"></script>
+<link href="default.css" media="all" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17815985-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body onload="init()">
+
+<div id="container">
+	<div id="page">
+		<canvas id="canvas" width="1024" height="620"></canvas>
+		<div id="toolbox" class="close">
+			<div id="mixer">
+				<div id="mixpallete">
+					<div class="label">
+						Colour Mixer</div>
+					<div id="red" class="color" onclick="setMixColor(this)" style="background-color: rgb(255,0,0)">
+					</div>
+					<div id="green" class="color" onclick="setMixColor(this)" style="background-color: rgb(0,255,0)">
+					</div>
+					<div id="blue" class="color" onclick="setMixColor(this)" style="background-color: rgb(0,0,255)">
+					</div>
+					<div id="white" class="color" onclick="resetMixColor()" style="background-color: rgb(255,255,255)">
+					</div>
+					<div class="clear">
+					</div>
+					<div id="mixcolor" class="blank" name="mixcolor" style="background-color: white">
+					</div>
+				</div>
+			</div>
+			<div id="styles">
+				<div class="label">
+					Line Style</div>
+				<div id="px24" class="linerow" onclick="setLineStyle(this)">
+					<div class="line" style="height: 24px;">
+					</div>
+					<div class="linesize">
+						24px</div>
+				</div>
+				<div id="px12" class="linerow" onclick="setLineStyle(this)">
+					<div class="line" style="height: 12px;">
+					</div>
+					<div class="linesize">
+						12px</div>
+				</div>
+				<div id="px8" class="linerow" onclick="setLineStyle(this)">
+					<div class="line" style="height: 8px;">
+					</div>
+					<div class="linesize">
+						8px</div>
+				</div>
+				<div id="px5" class="linerow" onclick="setLineStyle(this)">
+					<div class="line" style="height: 5px;">
+					</div>
+					<div class="linesize">
+						5px</div>
+				</div>
+				<div id="px3" class="linerow" onclick="setLineStyle(this)">
+					<div class="line" style="height: 3px;">
+					</div>
+					<div class="linesize">
+						3px</div>
+				</div>
+				<div id="px1" class="linerow" onclick="setLineStyle(this)">
+					<div class="line" style="height: 1px;">
+					</div>
+					<div class="linesize">
+						1px</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="control">
+		<div id="pallete">
+			<div class="color active" name="color" onclick="setColor(this)" style="background-color: red">
+			</div>
+			<div class="color" name="color" onclick="setColor(this)" style="background-color: green">
+			</div>
+			<div class="color" name="color" onclick="setColor(this)" style="background-color: blue">
+			</div>
+			<div class="color" name="color" onclick="setColor(this)" style="background-color: yellow">
+			</div>
+			<div class="color" name="color" onclick="setColor(this)" style="background-color: purple">
+			</div>
+			<div class="color" name="color" onclick="setColor(this)" style="background-color: #663300">
+			</div>
+			<div class="color" name="color" onclick="setColor(this)" style="background-color: white">
+			</div>
+			<div class="button" onclick="doTools()">
+				<img id="tools" alt="tools" class="tools" src="tools.png"> </div>
+		</div>
+		<div id="actions">
+			<div class="button" onclick="doTrash()">
+				<img id="trash" alt="trash" class="trash" src="trash.png"> </div>
+			<div class="button" onclick="doSave()">
+				<img id="save" alt="save" class="save" src="folder.png"> </div>
+			<div class="button" onclick="doRedo()">
+				<img id="redo" alt="redo" class="redo" src="redo.png"> </div>
+			<div class="button" onclick="doUndo()">
+				<img id="undo" alt="undo" class="undo" src="undo.png"> </div>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
